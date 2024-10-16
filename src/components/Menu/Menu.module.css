@@ -20,4 +20,6 @@
 .styled_link {
     font-size: 0.8rem;
     color: #1f1e31;
+    text-decoration: none;
+
 }

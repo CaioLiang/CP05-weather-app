@@ -1,9 +1,10 @@
 import { Menu } from "@/components/Menu/Menu";
+import style from "./page.module.css"
 
 export default function Home() {
   return (
-    <main>
-      <h1>Home</h1>
+    <main className = {style.styled_main}>
+      <h1>Inicio</h1>
       <Menu/>
     </main>
   )
