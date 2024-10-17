@@ -49,7 +49,6 @@ export default function Busca() {
 
     return (
       <Layout>
-        <h1>Busca</h1>
         <Header title="Busca" userName={userName} />
       <form>
         <Input

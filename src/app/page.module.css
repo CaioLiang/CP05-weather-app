@@ -1,16 +1,19 @@
 .styled_main{
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
     padding: 0;
     margin: 0;
-    font-size: 100%;
     font-style: normal;
     font-weight: normal;
     vertical-align: baseline;
     background: transparent;
     box-sizing: border-box;
-    font-family: "Poppins", Arial, Helvetica, sans-serif;
     font-optical-sizing: auto;
-    font-weight: 600;
     font-style: normal;
     min-height: 100vh;
     line-height: 1.38;
+   
+}
+.styled_h2{
+    font-size: 24px;
+    font-weight: 700;
 }

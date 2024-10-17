@@ -26,6 +26,7 @@ export default function Perfil() {
       router.push('/login');
     }
   }, [])
+  
     return (
       <main>
         <Layout>

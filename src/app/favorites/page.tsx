@@ -14,7 +14,6 @@ export default function Favoritos() {
     return (
       <Layout>
         <Header title="Favoritos" userName={userName}/>
-        <h1>Favoritos</h1>
       </Layout>
     )
   }

@@ -43,7 +43,7 @@ export default function Home() {
       setIsLoading(false);
     }
   }
-  
+
   const loadCity = async (cityCode: number) => {
     setIsLoading(true);
     try {
@@ -71,15 +71,14 @@ export default function Home() {
 
   return (
     <Layout>
-      <Header title="Home" userName={userName} />
+      <Header title="Inicio" userName={userName}/>
       <main className={style.styled_main}>
-        <h1>Inicio</h1>
         <div>
           {isLoading
             ? (<p>Carregando</p>
             ) : (
               <div>
-                <h2>
+                <h2 className={style.styled_h2}>
                   {cityData?.cidade}/{cityData?.estado}
                 </h2>
                 <p>
