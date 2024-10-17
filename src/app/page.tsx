@@ -1,7 +1,7 @@
 "use client"
 
 import style from "./page.module.css"
-import { Layout}  from "@/components/Layout/Layout";
+import { Layout } from "@/components/Layout/Layout";
 import { Header } from "@/components/Header/Header";
 import { useSearchParams } from "next/navigation";
 import UserContext from "../context/UserContext";
@@ -9,9 +9,20 @@ import { useVerifyLogin } from "@/helpers/useVerifyLogin";
 import { useContext, useEffect, useState } from "react";
 
 export default function Home() {
-  
+
   const searchParams = useSearchParams();
   const cityCode = searchParams.get("cityCode")
+
+  useVerifyLogin();
+
+  const { userName } = useContext(UserContext);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [cityData, setCityData] = useState();
+  const [forecast, setForecast] = useState([]);
+
+  const dateFormat = (data: string) => {
+    return new Date(data).toLocaleDateString('pt-br', { timeZone: 'UTC' });
+  }
 
   const loadForecast = async (cityCode: number) => {
     const params = {
@@ -32,18 +43,7 @@ export default function Home() {
       setIsLoading(false);
     }
   }
-
-  useVerifyLogin();
   
-  const { userName } = useContext(UserContext);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [cityData, setCityData] = useState();
-  const [forecast, setForecast] = useState([]);
-
-  const dateFormat = (data: string) => {
-    return new Date(data).toLocaleDateString('pt-br', { timeZone: 'UTC' });
-  }
-
   const loadCity = async (cityCode: number) => {
     setIsLoading(true);
     try {
@@ -71,9 +71,35 @@ export default function Home() {
 
   return (
     <Layout>
-      <Header title="Home" userName={userName}/>
-      <main className = {style.styled_main}>
+      <Header title="Home" userName={userName} />
+      <main className={style.styled_main}>
         <h1>Inicio</h1>
+        <div>
+          {isLoading
+            ? (<p>Carregando</p>
+            ) : (
+              <div>
+                <h2>
+                  {cityData?.cidade}/{cityData?.estado}
+                </h2>
+                <p>
+                  Min <span>{cityData?.clima[0].min}</span> /
+                  Max <span>{cityData?.clima[0].max}</span>
+                </p>
+                <p>{cityData?.clima[0].condicao_desc}</p>
+              </div>
+            )}
+        </div>
+        <div>
+          {forecast.map((item) => (
+            <div key={item.data}>
+              <span>{dateFormat(item.data)}</span>
+              <span>{item.condicao}</span>
+              <span>Min: {item.min}&#176;</span>
+              <span>Max: {item.max}&#176;</span>
+            </div>
+          ))}
+        </div>
       </main>
     </Layout>
   )
