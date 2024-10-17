@@ -1,12 +1,11 @@
-import { Menu } from "@/components/Menu/Menu";
+import { Layout } from "@/components/Layout/Layout";
 
 
 export default function Busca() {
     return (
-      <main>
+      <Layout>
         <h1>Busca</h1>
-        <Menu/>
-      </main>
+      </Layout>
     )
   }
 

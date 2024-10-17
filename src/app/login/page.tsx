@@ -1,11 +1,10 @@
-import { Menu } from "@/components/Menu/Menu";
+import { Layout } from "@/components/Layout/Layout";
 
 
-export default function Favorito() {
+export default function Login() {
     return (
-      <main>
+      <Layout>
         <h1>Login</h1>
-        <Menu/>
-      </main>
+      </Layout>
     )
   }

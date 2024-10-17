@@ -1,0 +1,24 @@
+.styled_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.styled_h1 {
+    margin-bottom: 0;
+}
+
+.styled_div {
+    display: flex;
+    gap: 8px;
+}
+
+.styled_button {
+    border: 0;
+    padding: 4px 6px;
+    font-size: 12px;
+    color: white;
+    background-color: #1f1e31;
+    border-radius: 6px;
+    cursor: pointer;
+}
